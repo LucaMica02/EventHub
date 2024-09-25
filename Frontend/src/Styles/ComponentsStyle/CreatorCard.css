@@ -1,0 +1,59 @@
+.creator-card {
+    width: 100%;
+    /* La card occupa l'intera larghezza disponibile */
+    max-width: 600px;
+    /* Larghezza massima della card per evitare che diventi troppo larga */
+    border: 1px solid black;
+    /* Bordi neri */
+    border-radius: 10px;
+    /* Bordi arrotondati */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Leggera ombra */
+    background-color: blanchedalmond;
+    overflow: hidden;
+    margin: 20px auto;
+    /* Centra la card nella pagina */
+    padding: 10px;
+    /* Padding interno */
+    display: flex;
+    /* Imposta un layout flessibile per allungare in orizzontale */
+    align-items: center;
+    /* Allinea il contenuto verticalmente al centro */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* Aggiungi una transizione per l'effetto hover */
+}
+
+.creator-card:hover {
+    transform: scale(1.02);
+    /* Leggera espansione della card su hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Aggiunge un'ombra su hover */
+}
+
+.profile-img {
+    width: 80px;
+    /* Immagine più piccola e circolare */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* Mantiene l'immagine circolare */
+    margin-right: 20px;
+    /* Spaziatura tra l'immagine e i dettagli */
+}
+
+.card-body {
+    flex-grow: 1;
+    /* Permette al contenuto di allungarsi per riempire lo spazio rimanente */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    /* Dimensioni ridotte per i dettagli */
+}

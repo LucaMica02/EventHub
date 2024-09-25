@@ -1,0 +1,9 @@
+EventiHub è un applicazione con lo scopo di semplificare l'organizzazione, la gestione e 
+la ricerca a eventi.
+Un utente può registrarsi come utente privato o come creatore di eventi.
+Gli utenti privati possono cercare gli eventi disponibili, registrarsi agli eventi e
+dare feedback agli eventi cui hanno partecipato.
+I creator possono creare nuovi eventi e gestire eventi già creati, i creator inoltre 
+hanno un ranking in base ai feedback ricevuto che va da 1 a 5.
+Gli eventi possono svolgersi online o di persona, nel primo caso va specifico l'url a 
+cui connettersi, altrimenti sarà necessario dare l'indirizzo dell'evento.

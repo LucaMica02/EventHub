@@ -1,0 +1,17 @@
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background: linear-gradient(to right, #006600, #00ccff);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.profile-icon {
+    font-size: 24px;
+    color: #fff;
+}

@@ -1,0 +1,45 @@
+.event-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: 15px;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.event-price,
+.event-free-spots,
+.event-rating,
+.event-dates,
+.event-location,
+.event-online {
+    margin-bottom: 10px;
+}
+
+.event-online.online {
+    color: green;
+}
+
+.event-online.offline {
+    color: red;
+}

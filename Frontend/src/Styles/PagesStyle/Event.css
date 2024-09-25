@@ -1,0 +1,57 @@
+/* EventDetails.css */
+
+.event-details {
+    max-width: 800px;
+    /* Fixed width for consistency */
+    margin: 0 auto;
+    /* Center the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.event-details img {
+    width: 100%;
+    max-width: 400px;
+    /* Maximum width for the image */
+    height: 300px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Ensure the image covers the box without stretching */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.event-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.event-details p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #666;
+}
+
+.event-details p.price {
+    font-size: 1.4rem;
+    color: #d9534f;
+    /* Bootstrap red */
+    font-weight: bold;
+}
+
+.event-details p.free-spots {
+    font-size: 1.2rem;
+    color: #5cb85c;
+    /* Bootstrap green */
+}
+
+.event-details p.rating {
+    font-size: 1.2rem;
+    color: #f0ad4e;
+    /* Bootstrap yellow */
+}
