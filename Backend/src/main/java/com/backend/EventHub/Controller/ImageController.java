@@ -22,8 +22,8 @@ import java.util.List;
 public class ImageController {
 
     private final List<String> EXTENSIONS = Arrays.asList("jpg", "jpeg", "png");
-    private final String USER_DIR = "C:/Users/lucam/Drive/Desktop/EventHub/Storage/Images/User/";
-    private final String EVENT_DIR = "C:/Users/lucam/Drive/Desktop/EventHub/Storage/Images/Event/";
+    private final String USER_DIR = "/app/Storage/Images/User/";
+    private final String EVENT_DIR = "/app/Storage/Images/Event/";
 
     @GetMapping("/event/{id}")
     public ResponseEntity<Resource> getEventImage(@PathVariable String id) {

@@ -1,3 +1,4 @@
+/*
 -- TRIGGERSSSSS AND DATA TO VIOLATE IT
 
 -- trigger_check_event_complete_and_disjoint
@@ -34,3 +35,4 @@ VALUES (20, 1), (16, 2);
 commit;
 
 -- RollBACK --> drop table if exists Nation, City, AppUser, Creator, Event, OnlineEvent, InPersonEvent, UserEvent, Feedback cascade;
+*/

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CreatorType, Event, FeedbackType } from "../Types";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
