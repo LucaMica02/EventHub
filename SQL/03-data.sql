@@ -58,21 +58,21 @@ VALUES
 
 INSERT INTO Event (creator, title, description, maxPeople, startBooking, endBooking, startEvent, endEvent, state, price)
 VALUES 
-(25, 'HealthTech Summit 2024', 'Exploring the intersection of healthcare and technology.', 550, '2024-12-01 09:00:00', '2024-12-30 18:00:00', '2025-01-05 09:00:00', '2025-01-07 18:00:00', 'Closed', 320.00),
-(26, 'AI Ethics Conference 2024', 'Discussing the ethical implications of artificial intelligence.', 300, '2024-11-01 09:00:00', '2024-12-01 18:00:00', '2024-12-10 09:00:00', '2024-12-11 18:00:00', 'Closed', 150.00),
-(23, 'Tech Conference 2024', 'A comprehensive technology conference covering AI, Blockchain, and Cloud Computing.', 500, '2024-09-01 09:00:00', '2024-10-01 18:00:00', '2024-10-10 09:00:00', '2024-10-12 18:00:00', 'Open', 300.00),
+(25, 'HealthTech Summit 2024', 'Exploring the intersection of healthcare and technology.', 550, '2024-01-01 09:00:00', '2024-01-30 18:00:00', '2024-03-05 09:00:00', '2024-03-07 18:00:00', 'Finished', 320.00),
+(26, 'AI Ethics Conference 2024', 'Discussing the ethical implications of artificial intelligence.', 300, '2024-09-01 09:00:00', '2024-09-15 18:00:00', '2024-09-16 09:00:00', '2024-09-16 18:00:00', 'Finished', 150.00),
+(23, 'Tech Conference 2024', 'A comprehensive technology conference covering AI, Blockchain, and Cloud Computing.', 500, '2024-09-01 09:00:00', '2024-10-01 18:00:00', '2024-10-10 09:00:00', '2024-10-12 18:00:00', 'Finished', 300.00),
 (23, 'Blockchain Summit 2024', 'An in-depth look at the future of blockchain technology.', 300, '2024-06-01 09:00:00', '2024-07-01 18:00:00', '2024-07-15 09:00:00', '2024-07-15 18:00:00', 'Finished', 150.00),
 (24, 'AI Expo 2024', 'Explore the latest advancements in artificial intelligence.', 700, '2024-05-01 09:00:00', '2024-06-01 18:00:00', '2024-06-10 09:00:00', '2024-06-12 18:00:00', 'Finished', 250.00),
 (25, 'Cybersecurity Conference 2024', 'A comprehensive event on modern cybersecurity challenges.', 400, '2024-03-01 09:00:00', '2024-04-01 18:00:00', '2024-04-05 09:00:00', '2024-04-07 18:00:00', 'Finished', 200.00),
 (26, 'Data Science Summit 2024', 'An event focused on data analysis, machine learning, and big data.', 600, '2024-07-01 09:00:00', '2024-08-01 18:00:00', '2024-08-10 09:00:00', '2024-08-12 18:00:00', 'Finished', 180.00),
 (23, 'Cloud Computing Expo 2024', 'The latest trends and innovations in cloud computing.', 350, '2024-02-01 09:00:00', '2024-03-01 18:00:00', '2024-03-10 09:00:00', '2024-03-12 18:00:00', 'Finished', 220.00),
-(24, 'Virtual Reality Conference 2024', 'Explore the future of VR technology and its applications.', 500, '2024-11-01 09:00:00', '2024-12-01 18:00:00', '2024-12-10 09:00:00', '2024-12-12 18:00:00', 'Closed', 300.00),
-(25, 'Quantum Computing Workshop 2024', 'An introductory workshop on quantum computing principles.', 250, '2024-10-15 09:00:00', '2024-11-15 18:00:00', '2024-11-20 09:00:00', '2024-11-21 18:00:00', 'Closed', 400.00),
-(26, 'IoT Innovations Conference 2024', 'The latest developments in the Internet of Things (IoT).', 600, '2024-10-05 09:00:00', '2024-11-05 18:00:00', '2024-11-10 09:00:00', '2024-11-12 18:00:00', 'Closed', 350.00),
-(23, 'Fintech Forum 2024', 'A deep dive into the world of financial technology.', 450, '2024-11-10 09:00:00', '2024-12-10 18:00:00', '2024-12-15 09:00:00', '2024-12-17 18:00:00', 'Closed', 275.00),
-(24, 'Robotics Expo 2024', 'The cutting-edge of robotics and automation.', 800, '2024-10-20 09:00:00', '2024-11-20 18:00:00', '2024-11-25 09:00:00', '2024-11-27 18:00:00', 'Closed', 500.00),
-(23, 'Smart Cities Conference 2024', 'The future of urban living with smart technology.', 700, '2024-12-15 09:00:00', '2025-01-15 18:00:00', '2025-01-20 09:00:00', '2025-01-22 18:00:00', 'Closed', 400.00),
-(24, '5G Technology Symposium 2024', 'The advancements and applications of 5G networks.', 900, '2024-11-05 09:00:00', '2024-12-05 18:00:00', '2024-12-15 09:00:00', '2024-12-17 18:00:00', 'Closed', 450.00);
+(24, 'Virtual Reality Conference 2024', 'Explore the future of VR technology and its applications.', 500, '2024-05-01 09:00:00', '2024-06-01 18:00:00', '2024-07-10 09:00:00', '2024-07-12 18:00:00', 'Finished', 300.00),
+(25, 'Quantum Computing Workshop 2024', 'An introductory workshop on quantum computing principles.', 250, '2024-06-15 09:00:00', '2024-06-30 18:00:00', '2024-08-20 09:00:00', '2024-08-21 18:00:00', 'Finished', 400.00),
+(26, 'IoT Innovations Conference 2024', 'The latest developments in the Internet of Things (IoT).', 600, '2024-02-05 09:00:00', '2024-03-05 18:00:00', '2024-03-10 09:00:00', '2024-03-12 18:00:00', 'Finished', 350.00),
+(23, 'Fintech Forum 2024', 'A deep dive into the world of financial technology.', 450, '2024-01-10 09:00:00', '2024-02-10 18:00:00', '2024-05-15 09:00:00', '2024-05-17 18:00:00', 'Finished', 275.00),
+(24, 'Robotics Expo 2024', 'The cutting-edge of robotics and automation.', 800, '2024-09-20 09:00:00', '2024-09-30 18:00:00', '2024-10-05 09:00:00', '2024-10-06 18:00:00', 'Finished', 500.00),
+(23, 'Smart Cities Conference 2024', 'The future of urban living with smart technology.', 700, '2024-02-15 09:00:00', '2024-03-15 18:00:00', '2024-04-20 09:00:00', '2024-04-22 18:00:00', 'Finished', 400.00),
+(24, '5G Technology Symposium 2024', 'The advancements and applications of 5G networks.', 900, '2024-01-05 09:00:00', '2024-02-05 18:00:00', '2024-02-15 09:00:00', '2024-02-17 18:00:00', 'Finished', 450.00);
 
 INSERT INTO OnlineEvent (event, url)
 VALUES
