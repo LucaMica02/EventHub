@@ -1,0 +1,36 @@
+EVENT
+    - startBooking > now [TRIGGER] 
+    - endBooking > startBooking 
+    - endEvent > startEvent 
+    - startEvent > endBooking 
+    - Event [Complete and Disjoint] [TRIGGER] 
+        (INSERT)
+            1 - Must exist online or inperson
+            2 - It doesn't have to exist in both
+    - creator is a creator [TRIGGER] 
+    - update <--> now < endBooking Stato [TRIGGER] 
+        [INSERT | UPDATE]
+        Open <-->  endBooking >= now >= startBooking and Register < maxPeople
+        Closed <--> endBooking >= now >= startBooking and Register == maxPeople
+                    or 
+                    not (endBooking >= now >= startBooking)
+        Finished <--> now > endEvent
+        Canceled <--> True
+
+FEEDBACK 
+    - User partecipated at the event --> EventState == Finished [TRIGGER] 
+
+USEREVENT
+    - Deleting or Adding an Event 
+        --> eventState = now() between startBooking and endBooking
+    - UserEvent not a creator [TRIGGER] 
+    - Count Event < Event.maxPeople 
+
+GETRANK
+    - At least one feedback required
+
+FEEDBACK 
+    - User partecipated at the event --> EventState == Finished [TRIGGER]
+
+REGISTER TO THE EVENT
+    - Curr user < max user
