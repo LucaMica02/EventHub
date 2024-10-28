@@ -29,20 +29,24 @@ function Home() {
   const [filterNationOnly, setFilterNationOnly] = useState(false); // nation filter
   const [user, setUser] = useState<User | null>(null); // store the current user
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // flag for user login
+  const [page, setPage] = useState(0); // Current page number
+  const [size, setSize] = useState(10); // Page size (number of events per page)
+  const [totalPages, setTotalPages] = useState(0); // Total pages from the backend
 
   // Get all the Events
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/event")
+      .get(`http://localhost:8080/api/event?page=${page}&size=${size}`)
       .then((response) => {
-        setEvents(response.data);
+        setEvents(response.data.content);
+        setTotalPages(response.data.totalPages);
         setLoading(false);
       })
       .catch((err) => {
         setError("Error loading events");
         setLoading(false);
       });
-  }, []);
+  }, [page, size]);
 
   // Get the user if logged in
   useEffect(() => {
@@ -55,6 +59,22 @@ function Home() {
       setIsLoggedIn(false);
     }
   }, []);
+
+  const handleNextPage = () => {
+    if (page < totalPages - 1) {
+      setPage(page + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (page > 0) {
+      setPage(page - 1);
+    }
+  };
+
+  const handleSizePage = (size: number) => {
+    setSize(size);
+  }
 
   // Online filter
   const handleOnlineFilterChange = (
@@ -221,6 +241,32 @@ function Home() {
           <p> No Events Available </p>
         )}
       </div>
+
+      {/* Pagination Controls */}
+      <div className="pagination-container">
+        <button onClick={handlePreviousPage} disabled={page === 0}>
+          Previous
+        </button>
+        <span>Page {page + 1} of {totalPages}</span>
+        <button onClick={handleNextPage} disabled={page >= totalPages - 1}>
+          Next
+        </button>
+      </div>
+
+      {/* Size Pagination Controls */}
+      <div className="size-pagination-container">
+        <span>Select the page size </span>
+        <button onClick={() => handleSizePage(10)}>
+          10
+        </button>
+        <button onClick={() => handleSizePage(25)}>
+          25
+        </button>
+        <button onClick={() => handleSizePage(50)}>
+          50
+        </button>
+      </div>
+
     </div>
   );
 }

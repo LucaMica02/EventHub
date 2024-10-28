@@ -3,6 +3,9 @@ package com.backend.EventHub.Controller;
 import com.backend.EventHub.Entity.*;
 import com.backend.EventHub.Service.*;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -75,19 +78,14 @@ public class EventController {
     }
 
     @GetMapping
-    public List<EventResponse> getAllEvent() {
-        eventService.updateEventsStates();
-        List<Event> events = eventService.getAllEvent();
-        List<EventResponse> eventResponses = new ArrayList<EventResponse>();
-        for (Event e : events) {
-            eventResponses.add(helper(e));
-        }
-        return eventResponses;
+    public ResponseEntity<Page<EventResponse>> getAllEvents(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "30") int size) {
+        Page<Event> paginatedEvents = eventService.getPageEvents(page, size);
+        Page<EventResponse> paginatedEventResponses = paginatedEvents.map(this::helper);
+        return new ResponseEntity<>(paginatedEventResponses, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public EventResponse getEventById(@PathVariable Long id) {
-        eventService.updateEventState(eventService.getEventById(id));
         return helper(eventService.getEventById(id));
     }
 
@@ -128,6 +126,7 @@ public class EventController {
             inPersonEvent.setZipCode(eventRequest.getZipcode());
             eventService.saveInPersonEvent(event, inPersonEvent);
         }
+        eventService.clearCache();
         return new ResponseEntity<>(event, HttpStatus.CREATED);
     }
 

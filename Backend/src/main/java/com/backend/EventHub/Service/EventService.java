@@ -7,10 +7,21 @@ import com.backend.EventHub.Entity.OnlineEvent;
 import com.backend.EventHub.Repository.EventRepository;
 import com.backend.EventHub.Repository.InPersonEventRepository;
 import com.backend.EventHub.Repository.OnlineEventRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.cache.Cache; 
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.stereotype.Service;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,16 +34,26 @@ public class EventService {
     private final OnlineEventRepository onlineEventRepository;
     @PersistenceContext
     private EntityManager entityManager;
+    private final CacheManager cacheManager;
+    private static final Logger logger = LoggerFactory.getLogger(EventService.class);
 
 
-    public EventService(EventRepository eventRepository, InPersonEventRepository inPersonEventRepository, OnlineEventRepository onlineEventRepository) {
+    public EventService(EventRepository eventRepository, InPersonEventRepository inPersonEventRepository, OnlineEventRepository onlineEventRepository, CacheManager cacheManager) {
         this.eventRepository = eventRepository;
         this.inPersonEventRepository = inPersonEventRepository;
         this.onlineEventRepository = onlineEventRepository;
+        this.cacheManager = cacheManager;
     }
 
-    public List<Event> getAllEvent() {
-        return eventRepository.findAll();
+    @Cacheable(value = "eventsCache", key = "#page + '-' + #size")
+    public Page<Event> getPageEvents(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return eventRepository.findAll(pageable);
+    }
+
+    @CacheEvict(value = "eventsCache", allEntries = true)
+    public void clearCache() {
+        System.out.println("Cache cleared!");
     }
 
     @Transactional
@@ -96,10 +117,12 @@ public class EventService {
         }
     }
 
+    @Scheduled(fixedRate = 60000) // 60.000 ms = 1 min
     public void updateEventsStates() {
         List<Event> events = eventRepository.findAll();
         for (Event e : events) {
             updateEventState(e);
         }
     }
+
 }

@@ -10,10 +10,10 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./sql:/docker-entrypoint-initdb.d  
+      - ./SQL:/docker-entrypoint-initdb.d  
     ports:
       - "5432:5432"
-
+    
   backend:
     build:
       context: ./Backend

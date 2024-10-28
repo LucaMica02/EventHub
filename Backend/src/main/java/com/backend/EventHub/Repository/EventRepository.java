@@ -2,6 +2,8 @@ package com.backend.EventHub.Repository;
 
 import com.backend.EventHub.Entity.Event;
 import com.backend.EventHub.Entity.EventState;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +17,7 @@ import java.util.List;
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
     //Query
+    Page<Event> findAll(Pageable pageable);
 
     @Query(value = "SELECT e.* FROM Event e WHERE e.creator = :creatorId", nativeQuery = true)
     List<Event> findByCreatorId(@Param("creatorId") Long creatorId);
